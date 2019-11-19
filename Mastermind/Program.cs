@@ -203,7 +203,7 @@ namespace Mastermind
         }
          void setting(MasterMindParam paramm,Program pr)
         {
-            Int32 result = 0;
+        
             
             try
             {
