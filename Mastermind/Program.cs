@@ -80,15 +80,15 @@ namespace Mastermind
             Console.WriteLine("you have {0} attempts to guess the number correctly",param.Attemps);
             Random rnd = new Random();
             //generate random digits
-            //  int[] target = new int[param.NumberOfDigits];
-            int[] target = { 1, 3};
-            /*  while (target.Distinct().Count() != param.NumberOfDigits)
+             int[] target = new int[param.NumberOfDigits];
+          //  int[] target = { 1, 3};
+              while (target.Distinct().Count() != param.NumberOfDigits)
              {
                  for (int x = 0; x < param.NumberOfDigits; x++)
                  {
                      target[x] = rnd.Next(param.RangeStarts, param.RangeEnds);
                  }
-             }*/
+             } 
 
             while (param.Attemps > 0)
             {
@@ -120,7 +120,8 @@ namespace Mastermind
                                         }
                                         else
                                         {
-                                            oneresult = oneresult + " " + param.CorrectPosition + userNumber[c];
+                                        positionCorrect++;
+                                        oneresult = oneresult + " " + param.CorrectPosition + userNumber[c];
                                         }
                                     }
                                     else
@@ -158,18 +159,26 @@ namespace Mastermind
 
 
                                 }
-                                Console.WriteLine(oneresult.ToString());
+                             //display the result for the user
+                             Console.WriteLine(oneresult.ToString());
+                         //   Console.WriteLine((target[0]).ToString()+ (target[1]).ToString());
+
                             Console.WriteLine(positionCorrect.ToString());
-                            // ?/ / if (positionCorrect==param.NumberOfDigits)
-                            // {
-                            //   Console.WriteLine("All correct ");
-                            // break;  
-                            // }
-                            //   if(param.Attemps==0)
-                            //  {
-                            //      Console.WriteLine("Game Over ");
-                            //      break;
-                            //   }
+                            if (positionCorrect==param.NumberOfDigits)
+                             {
+                               Console.WriteLine("All correct ");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;  
+                             }
+                            if(param.Attemps==0)
+                            {
+                                 Console.WriteLine("Game Over ");
+                                Console.ReadKey();
+                                Console.Clear();
+                                break;
+
+                            }
                         }
                             else
                             {
@@ -188,9 +197,9 @@ namespace Mastermind
                     {
                         Console.WriteLine("message 1) you must enter {0} digits you still have {1} attemps ", param.NumberOfDigits, (param.Attemps).ToString());
                     }
-               
+              
             }
-            
+           
         }
          void setting(MasterMindParam paramm,Program pr)
         {
