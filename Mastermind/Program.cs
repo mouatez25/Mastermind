@@ -19,7 +19,7 @@ namespace Mastermind
             Console.Read();
 
 
-
+////test
         }
         private static void MainCall(Int32 option,Program pr)
         {
